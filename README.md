@@ -1,1 +1,1 @@
-# Here I'll share my leetcode submissions.
+# Here, I'll share my leetcode submissions.
