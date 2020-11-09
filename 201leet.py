@@ -1,5 +1,5 @@
 
-class Solution:
+class Solution(object):
 	def __init__(self):
 		self.result = 0
 		self.binary =''
@@ -24,7 +24,7 @@ class Solution:
 		binary_a = self.dec_to_binary(a)
 		self.binary = ''
 		binary_b = self.dec_to_binary(b)
- 		print('binary_a',binary_a,'binary_b',binary_b)
+ 		
  		if len(binary_a)==len(binary_b):
  			length = len(binary_a)
  			ans = int(2**(length-1))
@@ -34,7 +34,3 @@ class Solution:
  			self.bitwise_and(a,b) 
  		return
  			
-
-	
-s=Solution()
-print s.rangeBitwiseAnd(input(),input())
