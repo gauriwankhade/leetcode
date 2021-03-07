@@ -1,79 +1,91 @@
 
-class node(object):
+class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-class Solution(object):
-	def delNodes(self,root,to_delete):
+class Solution:
+	def delNodes(self, root: TreeNode, to_delete):
+		queue = [root]
+		result = []
+		to_delete = self.listToDict(to_delete)
+		parent = {root:None}
+
 		
-		self.to_delete = self.list_to_dict(to_delete)
-		self.result = [root]
-		
-		#if root to be deleted
-		exception = self.check_exception(root)
-
-		while self.to_delete:
-			self.recursion(self.result[0])
-
-		#delete root node from result array
-		if exception:
-			self.result.pop(0)
-
-		return self.result
-		
-	def recursion(self,root):
-		if not root :
-			return
-
-		#postorder traversal
-		root.left = self.recursion(root.left)
-		root.right = self.recursion(root.right)
-
-		try:
-			#check condition, current node value present in to_delete dictionary
-			self.to_delete[root.val]
-
-			#add left and right nodes to the result array as seperate roots
-			if root.left :
-				self.result.append(root.left)
-								
-			if root.right :
-				self.result.append(root.right)
+		while(queue):
+			current = queue[0]
+			if current:
+				left  = None
+				right = None
 				
-			self.to_delete.pop(root.val)
-			return None
-
-		except:
-			pass
-
-		return root
-
+				if current.left:
+					left = current.left
+					parent[left] = current
+					
 	
-	def list_to_dict(self,to_delete):
+				if current.right:
+					right = current.right
+					parent[right] = current
+
+				queue.append(left)
+				queue.append(right)
+
+				if to_delete.get(current.val):
+					p = parent.get(current)
+
+					if queue[-1] and (not to_delete.get(queue[-1].val)) and queue[-1].val:
+						#print('added to result: ',queue[-1].val)
+						result.append(queue[-1])
+					if queue[-2] and (not to_delete.get(queue[-2].val)) and queue[-2].val:
+						#print('added to result: ',queue[-2].val)
+						result.append(queue[-2])
+					if p:
+						if p.left and (p.left.val == current.val):
+							p.left = None
+						elif p.right and (p.right.val == current.val):
+							p.right = None
+
+						
+			queue.pop(0)
+			
+		if not to_delete.get(root.val):
+			result.append(root)
+
+		for k in result:
+			print(k.val)
+
+		return result
+
+
+	def listToDict(self,to_delete):
 		Dict = {}
 		for i in to_delete:
 			Dict[i]=i
 		return Dict
 
-	def check_exception(self,root):
-		try:
-			self.to_delete[root.val]
-			return True
-		except:
-			return False
+	# def printTree(self,root):
+	# 	if not root:
+	# 		return
+	# 	print(root.val)
+	# 	self.printTree(root.left)
+	# 	self.printTree(root.right)
+
 
         
-root = node(1)
-root.left = node(2)
-root.right= node(3)
-root.left.left = node(4)
-root.left.right = node(5)
-root.right.left = node(6)
-root.right.right = node(7)
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right= TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(7)
 
-d = [1,6]
+d = [3,5]
 s = Solution()
 print(s.delNodes(root,d))
-		
+
+
+
+
+
