@@ -7,7 +7,6 @@ class Solution(object):
         #unique food items
         headers = sorted(list(set([item[2] for item in orders])))
 
-
         #pre-processing of order items to calculate frequency of food items
         for order in orders:
             order[1] = int(order[1])
@@ -27,6 +26,7 @@ class Solution(object):
             results.append(subList)
         
         return results
+
 
 
 
