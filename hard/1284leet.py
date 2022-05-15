@@ -6,19 +6,17 @@ class Solution(object):
         self.mLen = len(mat[0])
         flag = count = 0
         visited = {}
-
-        while (count < 1000):
-            queue = [(0, 0)]
-            visited = {}
-            while (queue):
-                if not self.checkMat(mat):
-                    elem = queue.pop(0)
-                    if not visited.get(elem):
-                        visited[elem] = True
-                        self.flipMatrix(elem[0], elem[1], mat, queue)
-                    count += 1
-                else:
-                    return count
+        queue = [(0, 0)]
+            
+        while (queue):
+            if not self.checkMat(mat):
+                elem = queue.pop(0)
+                if not visited.get(elem):
+                    visited[elem] = True
+                    self.flipMatrix(elem[0], elem[1], mat, queue)
+                count += 1
+            else:
+                return count
 
              
             
