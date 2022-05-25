@@ -8,7 +8,7 @@ class Solution(object):
 		lastSub = defaultdict(int)
 
 		for num in nums:
-			#print(num, count)
+			
 			if not count[num]:
 				continue
 
