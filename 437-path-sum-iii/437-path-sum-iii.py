@@ -12,11 +12,11 @@ class Solution(object):
         self.targetSum = targetSum
 
         while(stack):
-            top = stack.pop(0)
+            top = stack.pop()
             
             if top:
-                stack.append(top.left)
-                stack.append(top.right)
+                stack.insert(0, top.left)
+                stack.insert(0, top.right)
             self.traverseTree(top, 0)
 
 
