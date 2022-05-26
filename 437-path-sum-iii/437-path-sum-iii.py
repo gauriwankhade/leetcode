@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
@@ -7,32 +9,41 @@
 
 class Solution(object):
     def pathSum(self, root, targetSum):
-        stack = [root]
         self.count = 0
-        self.targetSum = targetSum
+        summ = 0
+        sumMap = defaultdict(int)
 
-        while(stack):
-            top = stack.pop()
+        def traverseTree(curr, summ):
+            if not curr:
+                return
             
-            if top:
-                stack.insert(0, top.left)
-                stack.insert(0, top.right)
-            self.traverseTree(top, 0)
+            summ += curr.val
+
+            
+                
+
+            if summ == targetSum :
+                self.count += 1
+                
+            
+            self.count += sumMap[summ - targetSum]
+            
 
 
+            
+            sumMap[summ] += 1
+            
+
+
+            traverseTree(curr.left, summ)
+            traverseTree(curr.right, summ)
+
+            
+
+            if sumMap.get(summ):
+                sumMap[summ] -= 1
+
+
+
+        traverseTree(root, 0)
         return self.count
-
-
-
-    def traverseTree(self, curr, summ):
-        if not curr:
-            return
-
-        
-        summ += curr.val
-
-        if summ == self.targetSum:
-            self.count += 1
-
-        self.traverseTree(curr.left, summ)
-        self.traverseTree(curr.right, summ)
