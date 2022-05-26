@@ -19,29 +19,22 @@ class Solution(object):
             
             summ += curr.val
 
-            
-                
-
             if summ == targetSum :
                 self.count += 1
-                
-            
-            self.count += sumMap[summ - targetSum]
-            
 
+            if sumMap.get(summ - targetSum):
+                self.count += sumMap[summ - targetSum]
 
-            
             sumMap[summ] += 1
             
-
 
             traverseTree(curr.left, summ)
             traverseTree(curr.right, summ)
 
-            
 
             if sumMap.get(summ):
                 sumMap[summ] -= 1
+
 
 
 
