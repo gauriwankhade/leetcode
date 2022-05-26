@@ -13,7 +13,7 @@ class Solution(object):
             if nums[newInd] < 0:
                 ans.append(newInd + 1)
             else:
-            	nums[newInd] =  -1 * nums[newInd] 
+            	nums[newInd] =  - nums[newInd] 
         
         
         return ans
