@@ -5,7 +5,7 @@ class Solution(object):
         add = 1
         ans = ''
 
-        def reverse(add, start):
+        def signReverse(add, start):
 	        if add:
 	            start += 1
 	        else:
@@ -22,7 +22,7 @@ class Solution(object):
                 add = 1
 
             result[start] += char
-            start = reverse(add, start)
+            start = signReverse(add, start)
             
         
         for item in result:
