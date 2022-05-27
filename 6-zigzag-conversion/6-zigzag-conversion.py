@@ -1,6 +1,6 @@
 class Solution(object):
     def convert(self, s, numRows):
-        result = ["" for i in range(numRows)]
+        result = [""] * numRows
         start, add, ans = 0, 1, ''
 
         def reverseDirection(add, start):
