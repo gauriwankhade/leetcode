@@ -1,7 +1,7 @@
 class Solution(object):
     def convert(self, s, numRows):
         result = [""] * numRows
-        start, add, ans = 0, 1, ''
+        start, add = 0, 1
 
         def reverseDirection(add, start):
 	        if add:
@@ -21,8 +21,6 @@ class Solution(object):
 
             result[start] += char
             start = reverseDirection(add, start)
-            
-        
-        
+
             
         return "".join(result)
