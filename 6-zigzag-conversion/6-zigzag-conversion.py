@@ -1,9 +1,7 @@
 class Solution(object):
     def convert(self, s, numRows):
         result = ["" for i in range(numRows)]
-        start = 0
-        add = 1
-        ans = ''
+        start, add, ans = 0, 1, ''
 
         def reverseDirection(add, start):
 	        if add:
