@@ -23,7 +23,6 @@ class Solution(object):
             start = reverseDirection(add, start)
             
         
-        for item in result:
-            ans += item
+        
             
-        return ans
+        return "".join(result)
