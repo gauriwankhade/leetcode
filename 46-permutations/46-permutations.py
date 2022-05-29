@@ -1,6 +1,8 @@
+from collections import defaultdict
+
 class Solution(object):
     def permute(self, nums):
-        graph = {nums[0]: []}
+        graph = defaultdict(list)
         result = []
         numLen = len(nums)
 
@@ -8,10 +10,8 @@ class Solution(object):
             for j in range(len(nums)):
                 if i == j:
                     continue
-                if not graph.get(nums[i]):
-                    graph[nums[i]] = [nums[j]]
-                else:
-                    graph[nums[i]].append(nums[j])
+                                    
+                graph[nums[i]].append(nums[j])
 
         
         def recursion(num, curr, visited):
@@ -31,3 +31,4 @@ class Solution(object):
             
             
         return result
+            
