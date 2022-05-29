@@ -4,12 +4,12 @@ class Solution(object):
 		result = [[]]
 		length = len(nums)
 
-		def helper(num, stack):	
+		def helper(num, curr):	
 			for neighbor in range(num+1, length):
-				helper(neighbor, stack + [nums[neighbor]])
+				helper(neighbor, curr + [nums[neighbor]])
 
-			if len(stack) > 1:
-				result.append(stack)
+			if len(curr) > 1:
+				result.append(curr)
 
 
 		for num in range(length):
