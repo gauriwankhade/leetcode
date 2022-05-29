@@ -1,6 +1,6 @@
 class Solution(object):
     def permute(self, nums):
-        graph = {}
+        graph = {nums[0]: []}
         result = []
         numLen = len(nums)
 
@@ -15,11 +15,10 @@ class Solution(object):
 
         
         def recursion(num, curr, visited):
-            if graph.get(num):
-                for i in graph[num]:
-                    if not visited.get(i):
-                        visited[i] = True
-                        recursion(i, curr + [i], visited)
+            for i in graph[num]:
+                if not visited.get(i):
+                    visited[i] = True
+                    recursion(i, curr + [i], visited)
 
             visited[num] = False
             if len(curr) == numLen:
@@ -32,4 +31,3 @@ class Solution(object):
             
             
         return result
-            
