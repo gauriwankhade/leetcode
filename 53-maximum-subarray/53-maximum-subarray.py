@@ -2,11 +2,11 @@ class Solution(object):
 	def maxSubArray(self, nums):
 		maxCount = lastSum  = nums[0]
 
-		for num in range(1, len(nums)):
+		for num in nums[1: ]:
 			if lastSum >= 0:
-				lastSum += nums[num]
+				lastSum += num
 			else:
-				lastSum = nums[num] 
+				lastSum = num 
 
 
 			maxCount = max(maxCount, lastSum)
