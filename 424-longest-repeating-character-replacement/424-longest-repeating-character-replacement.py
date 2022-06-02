@@ -21,7 +21,7 @@ class Solution(object):
 			maxCount = max(count, maxCount)
 			index += 1
 
-		# handle edge case - last count not didnt used up k
+		# handle edge case - last count didnt used up k
 		if count - Map[s[last]] < k:
 			count +=  k
 
