@@ -1,10 +1,8 @@
 class Solution(object):
 	def characterReplacement(self, s, k):
-		maxCount = 0
+		maxCount = last = 0
 		length = len(s)
 		index  = count = 1
-		limit = k
-		last = 0
 
 		Map = defaultdict(int)
 		Map[s[0]] += 1
@@ -24,8 +22,7 @@ class Solution(object):
 
 		if count - Map[s[last]] < k:
 			count +=  k
-			if count > length:
-				count = length
 
+		return min(max(count, maxCount), length)
 
-		return max(count, maxCount)
+	
