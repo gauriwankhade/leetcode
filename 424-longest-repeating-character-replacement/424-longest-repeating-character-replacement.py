@@ -7,9 +7,9 @@ class Solution(object):
 		Map = defaultdict(int)
 		Map[s[0]] += 1
 
-		while(index < length ):
+		while(index < length):
 			Map[s[index]] += 1
-			count = sum(Map.values())
+			count += 1
 
 			if count - Map[s[last]] > k:
 				Map[s[last]] -= 1
@@ -24,5 +24,3 @@ class Solution(object):
 			count +=  k
 
 		return min(max(count, maxCount), length)
-
-	
