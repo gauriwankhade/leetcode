@@ -11,20 +11,21 @@ class Solution(object):
 
 		while(index < length ):
 			Map[s[index]] += 1
-			if sum(Map.values()) - Map[s[last]] > k:
+			count = sum(Map.values())
+
+			if count - Map[s[last]] > k:
 				Map[s[last]] -= 1
 				last += 1
-				limit = k
+				count -= 1
 
-			maxCount = max(sum(Map.values()), maxCount)
-
+			maxCount = max(count, maxCount)
 			index += 1
 
 
-		if sum(Map.values()) - Map[s[last]] < k:
-			count = sum(Map.values()) + k
+		if count - Map[s[last]] < k:
+			count +=  k
 			if count > length:
 				count = length
 
-		
+
 		return max(count, maxCount)
