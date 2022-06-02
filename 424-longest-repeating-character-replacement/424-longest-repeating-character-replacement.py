@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution(object):
 	def characterReplacement(self, s, k):
 		maxCount = last = 0
@@ -19,8 +21,10 @@ class Solution(object):
 			maxCount = max(count, maxCount)
 			index += 1
 
-
+		# handle edge case - last count not didnt used up k
 		if count - Map[s[last]] < k:
 			count +=  k
 
 		return min(max(count, maxCount), length)
+
+	
