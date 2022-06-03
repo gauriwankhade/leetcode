@@ -12,7 +12,6 @@ class Solution(object):
 				
 			elif nums[low] > nums[mid] < nums[high]:
 				high = mid 
-				continue
 						
 			else:
 				return min(nums[high], nums[low])
