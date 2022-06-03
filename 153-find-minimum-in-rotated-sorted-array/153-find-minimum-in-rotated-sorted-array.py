@@ -5,7 +5,7 @@ class Solution(object):
         
 
 		while(low < high):
-			mid = int((low + high) // 2)
+			mid = (low + high) // 2
 			
 			if nums[low] < nums[mid] > nums[high]:
 				low = mid
