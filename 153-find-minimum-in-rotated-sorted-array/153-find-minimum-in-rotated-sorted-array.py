@@ -6,19 +6,19 @@ class Solution(object):
 
 		while(low < high):
 			mid = int((low + high) // 2)
-
 			
-
 			if nums[low] < nums[mid] > nums[high]:
-				low = mid 
-			elif nums[low] > nums[mid] < nums[high]:
+				low = mid
+				continue
+			if nums[low] > nums[mid] < nums[high]:
 				high = mid 
-			elif nums[low] >= nums[mid] >= nums[high]:
-				return nums[high]
-			elif nums[low] <= nums[mid] <= nums[high]:
-				return nums[low]
+				continue
+			# elif nums[low] >= nums[mid] >= nums[high]:
+			# 	return nums[high]
+			# elif nums[low] <= nums[mid] <= nums[high]:
+			# 	return nums[low]
+			else:
+				return min(nums[high], nums[mid], nums[low])
 			
-
-
 
 		return nums[mid]
