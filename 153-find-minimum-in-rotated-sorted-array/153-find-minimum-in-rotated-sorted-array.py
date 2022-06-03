@@ -18,7 +18,7 @@ class Solution(object):
 			# elif nums[low] <= nums[mid] <= nums[high]:
 			# 	return nums[low]
 			else:
-				return min(nums[high], nums[mid], nums[low])
+				return min(nums[high], nums[low])
 			
 
 		return nums[mid]
