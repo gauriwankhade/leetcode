@@ -9,13 +9,13 @@ class Solution(object):
 			
 			if nums[low] < nums[mid] > nums[high]:
 				low = mid
-				continue
-			if nums[low] > nums[mid] < nums[high]:
+				
+			elif nums[low] > nums[mid] < nums[high]:
 				high = mid 
 				continue
-			
-			
-			return min(nums[high], nums[low])
+						
+			else:
+				return min(nums[high], nums[low])
 			
 
 		return nums[mid]
