@@ -1,18 +1,16 @@
 class Solution(object):
 	def longestConsecutive(self, nums):
 		visited = {}
-		maxCount = 0
+		maxCount = 0	
 
 		for key in nums:
 			visited[key] = 0
 
-
 		for num in nums:
-			
 			if not visited[num]:
-				# count = helper(num, 0)
 				stack = [num]
 				count = 1
+
 				while(stack):
 					top = stack.pop()
 					visited[top] += 1
