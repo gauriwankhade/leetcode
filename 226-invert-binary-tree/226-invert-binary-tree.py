@@ -7,9 +7,9 @@ class Solution(object):
             if not curr:
                 return
 
-            temp = curr.left
-            curr.left = curr.right
-            curr.right = temp
+           
+            curr.left, curr.right = curr.right, curr.left
+            
 
             helper(curr.left)
             helper(curr.right)
