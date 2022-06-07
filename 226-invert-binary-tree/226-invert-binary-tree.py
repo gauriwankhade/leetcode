@@ -3,17 +3,15 @@ class Solution(object):
         if not root:
             return
 
-        def helper(curr):
+        def swapNodes(curr):
             if not curr:
                 return
-
            
             curr.left, curr.right = curr.right, curr.left
             
+            swapNodes(curr.left)
+            swapNodes(curr.right)
 
-            helper(curr.left)
-            helper(curr.right)
-
-        helper(root)
+        swapNodes(root)
 
         return root
