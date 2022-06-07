@@ -3,8 +3,7 @@ class Solution(object):
         if not root:
             return
 
-        curr = root 
-        curr.left, curr.right = self.invertTree(curr.right), self.invertTree(curr.left)
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
    
 
         return root
