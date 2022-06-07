@@ -3,15 +3,12 @@ class Solution(object):
         if not root:
             return
 
-        def swapNodes(curr):
-            if not curr:
-                return
-           
-            curr.left, curr.right = curr.right, curr.left
-            
-            swapNodes(curr.left)
-            swapNodes(curr.right)
-
-        swapNodes(root)
+#         def swapNodes(curr):
+#             if not curr:
+#                 return
+        curr = root 
+        curr.left, curr.right = self.invertTree(curr.right), self.invertTree(curr.left)
+   
+        # swapNodes(root)
 
         return root
