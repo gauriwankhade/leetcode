@@ -9,9 +9,9 @@ class Solution(object):
     def isSameTree(self, p, q):
         if not p and not q:
             return True
-        if (p and not q) or (q and (not p)):
-            return False
+        # if (p and not q) or (q and (not p)):
+        #     return False
 
-        if p.val == q.val:
-            if self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right):
-                return True
+        if p and q and p.val == q.val:
+            return(self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right))
+               
