@@ -7,20 +7,11 @@
 
 class Solution(object):
     def isSameTree(self, p, q):
-        pArr, qArr = [], []
+        if not p and not q:
+            return True
+        if (p and not q) or (q and (not p)):
+            return False
 
-        def helper(curr, arr):
-            if not curr:
-                arr.append(None)
-                return
-
-            arr.append(curr.val)
-
-            helper(curr.left, arr)
-            helper(curr.right, arr)
-
-        helper(p, pArr)
-        helper(q, qArr)
-
-        return pArr == qArr
-           
+        if p.val == q.val:
+            if self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right):
+                return True
