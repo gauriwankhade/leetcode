@@ -7,8 +7,8 @@
 
 class Solution(object):
     def isSubtree(self, root, subRoot):
-       
-
+        self.ans = False
+        
         def isSameTree(p, q):
             if not p and not q:
                 return True
@@ -19,19 +19,18 @@ class Solution(object):
                 if isSameTree(p.left, q.left) and isSameTree(p.right, q.right):
                     return True
 
-        def findSubRoot(curr, sub, ans):
+        def findSubRoot(curr, sub):
             if not curr:
-                return ans
+                return
 
            
-            ans = findSubRoot(curr.left, sub, ans)
-            ans = findSubRoot(curr.right, sub, ans)
+            findSubRoot(curr.left, sub)
+            findSubRoot(curr.right, sub)
             
             if curr.val == sub.val and isSameTree(curr, sub):
-                ans = True
-                
-            return ans
+                self.ans = True
+                return
 
-        return findSubRoot(root, subRoot, False)
+        findSubRoot(root, subRoot)
 
-        #return self.ans
+        return self.ans
