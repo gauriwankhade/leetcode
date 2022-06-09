@@ -12,12 +12,10 @@ class Solution(object):
         def isSameTree(p, q):
             if not p and not q:
                 return True
-            if (p and not q) or (q and (not p)):
-                return False
 
-            if p.val == q.val:
-                if isSameTree(p.left, q.left) and isSameTree(p.right, q.right):
-                    return True
+            if p and q and p.val == q.val:
+                return(isSameTree(p.left, q.left) and isSameTree(p.right, q.right))
+                    
 
         def findSubRoot(curr, sub):
             if not curr:
