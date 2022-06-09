@@ -1,14 +1,12 @@
 class Solution(object):
 	def getRow(self, rowIndex):
-		ans = [1]
+		dp = [[0 for col in range(rowIndex + 1)] for row in range(rowIndex + 1)]
 
-		for i in range(1, rowIndex + 1):
-			newArr = ans + []
-			for j in range(1, i):
-				newArr[j] = newArr[j] + ans[j - 1]
+		for col in dp:
+			col[0] = 1
 
-			newArr.append(1)
-			ans = newArr
+		for i in range(1, len(dp)):
+			for j in range(1, len(dp)):
+				dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1]
 
-
-		return ans
+		return dp[-1]
