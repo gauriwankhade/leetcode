@@ -24,13 +24,13 @@ class Solution(object):
                 return
 
             if curr.val == sub.val:
-                self.sub.append(curr)
+                self.sub.insert(0, curr)
 
             findSubRoot(curr.left, sub)
             findSubRoot(curr.right, sub)
 
         findSubRoot(root, subRoot)
 
-        for node in self.sub[::-1]:
+        for node in self.sub:
             if isSameTree(node, subRoot):
                 return True
