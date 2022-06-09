@@ -23,11 +23,9 @@ class Solution(object):
             if not curr:
                 return
 
-            if curr.val == sub.val:
-                # self.sub.insert(0, curr)
-                if isSameTree(curr, sub):
-                    self.ans = True
-                    return 
+            if curr.val == sub.val and isSameTree(curr, sub):
+                self.ans = True
+                return 
 
             findSubRoot(curr.left, sub)
             findSubRoot(curr.right, sub)
