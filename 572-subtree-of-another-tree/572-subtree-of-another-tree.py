@@ -22,15 +22,14 @@ class Solution(object):
         def findSubRoot(curr, sub):
             if not curr:
                 return
-
            
             findSubRoot(curr.left, sub)
             findSubRoot(curr.right, sub)
             
             if curr.val == sub.val and isSameTree(curr, sub):
                 self.ans = True
-                return
+                
+            return self.ans
 
-        findSubRoot(root, subRoot)
+        return findSubRoot(root, subRoot)
 
-        return self.ans
