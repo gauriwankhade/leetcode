@@ -7,7 +7,7 @@
 
 class Solution(object):
     def isSubtree(self, root, subRoot):
-        self.sub = []
+        self.ans = False
 
         def isSameTree(p, q):
             if not p and not q:
@@ -24,13 +24,14 @@ class Solution(object):
                 return
 
             if curr.val == sub.val:
-                self.sub.insert(0, curr)
+                # self.sub.insert(0, curr)
+                if isSameTree(curr, sub):
+                    self.ans = True
+                    return 
 
             findSubRoot(curr.left, sub)
             findSubRoot(curr.right, sub)
 
         findSubRoot(root, subRoot)
 
-        for node in self.sub:
-            if isSameTree(node, subRoot):
-                return True
+        return self.ans
