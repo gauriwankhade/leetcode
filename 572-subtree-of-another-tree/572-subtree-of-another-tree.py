@@ -25,9 +25,10 @@ class Solution(object):
 
             if curr.val == sub.val and isSameTree(curr, sub):
                 self.ans = True
-            else:
-                findSubRoot(curr.left, sub)
-                findSubRoot(curr.right, sub)
+                return
+           
+            findSubRoot(curr.left, sub)
+            findSubRoot(curr.right, sub)
 
         findSubRoot(root, subRoot)
 
