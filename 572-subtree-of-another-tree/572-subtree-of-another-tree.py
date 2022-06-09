@@ -23,12 +23,13 @@ class Solution(object):
             if not curr:
                 return
 
-            if curr.val == sub.val and isSameTree(curr, sub):
-                self.ans = True
-                return
            
             findSubRoot(curr.left, sub)
             findSubRoot(curr.right, sub)
+            
+            if curr.val == sub.val and isSameTree(curr, sub):
+                self.ans = True
+                return
 
         findSubRoot(root, subRoot)
 
