@@ -21,7 +21,7 @@ class Solution(object):
 
         def findSubRoot(curr, sub):
             if not curr:
-                return
+                return 
 
            
             findSubRoot(curr.left, sub)
@@ -29,8 +29,9 @@ class Solution(object):
             
             if curr.val == sub.val and isSameTree(curr, sub):
                 self.ans = True
-                return
+                
+            return self.ans
 
-        findSubRoot(root, subRoot)
+        return findSubRoot(root, subRoot)
 
-        return self.ans
+        #return self.ans
