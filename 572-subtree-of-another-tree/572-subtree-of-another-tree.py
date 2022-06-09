@@ -31,6 +31,6 @@ class Solution(object):
 
         findSubRoot(root, subRoot)
 
-        for node in self.sub:
+        for node in self.sub[::-1]:
             if isSameTree(node, subRoot):
                 return True
