@@ -5,7 +5,8 @@ class Solution(object):
         ans = len(s)
         
         for key in Map:
-            ans += ((Map[key] * (Map[key] - 1)) / 2)
+            val = Map[key]
+            ans += ((val * (val - 1)) / 2)
                  
         return ans
                 
