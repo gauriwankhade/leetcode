@@ -1,19 +1,18 @@
 class Solution(object):
     def isAnagram(self, s, t):
         alpha = 'abcdefghijklmnopqrstuvwxyz'
-        
+        s = sorted(s)
+        t = sorted(t)
         length = len(s)
         
         if length != len(t):
-            return False
+            return
         
-        sList = [''] * 26
-        tList = [''] * 26
+        for idx in range(length):
+            if s[idx] != t[idx]:
+                return False
         
-        for index in range(length):
-            sList[alpha.find(s[index])] += s[index]
-            tList[alpha.find(t[index])] += t[index]
-            
-        if sList == tList:
-            return True
+        return True
+        
+        
             
