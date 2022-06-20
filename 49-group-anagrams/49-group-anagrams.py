@@ -5,7 +5,7 @@ class Solution(object):
 		strMap = defaultdict(list)
 
 		for item in strs:
-			key = tuple(sorted(item))
+			key = "".join(sorted(item))
 			strMap[key].append(item)
 
 		return strMap.values()
