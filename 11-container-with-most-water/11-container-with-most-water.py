@@ -11,7 +11,7 @@ class Solution(object):
 			elif height[end] > height[start]:
 				start += 1
 			else:
-				start += 1
+				end -= 1
 
 			maxArea = max(maxArea, min(height[start], height[end]) * (end - start))
 
