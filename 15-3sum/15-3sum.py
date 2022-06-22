@@ -37,6 +37,7 @@ class Solution(object):
         finalRes = {}
 
         for res in result:
-            finalRes[tuple(sorted(res))] = list(res)
+            key = sorted(res)
+            finalRes[tuple(key)] = key
 
         return finalRes.values()
