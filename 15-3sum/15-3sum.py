@@ -1,6 +1,6 @@
 class Solution(object):
     def threeSum(self, nums):
-        result = []
+        result = set()
 
         if not nums:
             return
@@ -31,7 +31,7 @@ class Solution(object):
             for j in range(i + 1, len(nums)):
                 thirdNum = numMap.get(- (nums[i] + nums[j]))
                 if thirdNum and (thirdNum - 1 not in [i, j]):
-                    result.append((- (nums[i] + nums[j]), nums[i], nums[j]))
+                    result.add((- (nums[i] + nums[j]), nums[i], nums[j]))
 
       
         finalRes = {}
