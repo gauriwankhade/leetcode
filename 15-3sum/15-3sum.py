@@ -17,9 +17,8 @@ class Solution(object):
                 elif nums[left] + nums[right] < -nums[index]:
                     left += 1
                 else:
-                    result.append([nums[index], nums[left], nums[right]])
+                    if not result or result[-1] != [nums[index], nums[left], nums[right]]:
+                        result.append([nums[index], nums[left], nums[right]])
                     left += 1
-                    while(left < right and (nums[left - 1] == nums[left])):
-                        left += 1
 
         return result
