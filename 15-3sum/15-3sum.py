@@ -1,23 +1,20 @@
 class Solution(object):
-    def threeSum(self, nums):
-        if not nums:
-            return
+     def threeSum(self, nums):
 
-        length = len(nums) - 1
+        length = len(nums) 
         result = []
-        nums = sorted(nums) 
+        nums = sorted(nums)
 
         for index in range(len(nums)):
             if index > 0 and nums[index] == nums[index - 1]:
                 continue
-
             left = index + 1
-            right = length 
+            right = length - 1
 
             while(left < right):
-                if nums[left] + nums[right] + nums[index] > 0:
+                if nums[left] + nums[right] > -nums[index]:
                     right -= 1
-                elif nums[left] + nums[right] + nums[index] < 0:
+                elif nums[left] + nums[right] < -nums[index]:
                     left += 1
                 else:
                     result.append([nums[index], nums[left], nums[right]])
