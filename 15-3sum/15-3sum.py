@@ -3,16 +3,16 @@ class Solution(object):
         if not nums:
             return
 
-        length = len(nums) 
+        length = len(nums) - 1
         result = []
-        nums = sorted(nums)
+        nums = sorted(nums) 
 
         for index in range(len(nums)):
             if index > 0 and nums[index] == nums[index - 1]:
                 continue
 
             left = index + 1
-            right = length - 1
+            right = length 
 
             while(left < right):
                 if nums[left] + nums[right] + nums[index] > 0:
