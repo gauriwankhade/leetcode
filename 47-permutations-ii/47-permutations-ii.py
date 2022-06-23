@@ -9,10 +9,11 @@ class Solution(object):
 				return 
 
 			for i in range(len(nums)):
-				if not visited[i]:
-					visited[i] = True
-					backtrack(i + 1, arr + [nums[i]])
-					visited[i] = False
+				if visited[i]:
+					continue
+				visited[i] = True
+				backtrack(i + 1, arr + [nums[i]])
+				visited[i] = False
 
 			return result
 
