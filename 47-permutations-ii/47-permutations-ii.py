@@ -1,12 +1,12 @@
 class Solution(object):
 	def permuteUnique(self, nums):
-		result = set()
+		result = defaultdict(list)
 		limit = len(nums)
 		visited = {}
-		
+
 		def backtrack(curr, arr, limit):
 			if len(arr) == limit:
-				result.add(tuple(arr))
+				result[tuple(arr)] = arr
 				return result
 
 			for i in range(limit):
@@ -15,5 +15,7 @@ class Solution(object):
 					backtrack(i + 1, arr + [nums[i]], limit)
 					visited[i] = False
 
-		backtrack(0, [], limit)
-		return [list(tup) for tup in result]
+			return result
+
+		return backtrack(0, [], limit).values()
+		
