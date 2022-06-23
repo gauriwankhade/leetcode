@@ -5,21 +5,16 @@ class Solution(object):
 		# in each iteration find combinations includes - current and length is k
 
 		result = []
-		def backtrack(curr, arr, limit, n):
-			if len(arr) == limit:
+		def backtrack(curr, arr, limit, n, currLen):
+			if currLen == limit:
 				result.append(arr)
 				return
 
 			for i in range(curr, n):
-				backtrack(i + 1, arr + [i], limit, n)
+				backtrack(i + 1, arr + [i], limit, n, currLen + 1)
 
 
-		# for num in range(1, n - k + 2):
-		# 	backtrack(num, [num], k, n + 1)
-
-
-		backtrack(1, [], k, n + 1)
-
+		backtrack(1, [], k, n + 1, 0)
 
 		return result
 
