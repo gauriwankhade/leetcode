@@ -1,7 +1,7 @@
 class Solution(object):
     
     def combine(self, n, k):
-		# loop over all elements - range(1, n - k + 1)
+		# loop over all elements - range(1, n - k + 2)
 		# in each iteration find combinations includes - current and length is k
 
 		result = []
