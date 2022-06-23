@@ -8,7 +8,7 @@ class Solution(object):
 		#arr = []
 		def backtrack(curr, limit, n, arr):
 			if len(arr) == limit:
-				result.append(arr.copy())
+				result.append(arr[0: ])
 				return 
 
 			for i in range(curr, n):
