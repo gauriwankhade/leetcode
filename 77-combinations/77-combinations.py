@@ -13,10 +13,11 @@ class Solution(object):
 			for i in range(curr, n):
 				backtrack(i + 1, arr + [i], limit, n, currLen + 1)
 
+			return result
+    
+		return backtrack(1, [], k, n + 1, 0)
 
-		backtrack(1, [], k, n + 1, 0)
-
-		return result
+		#return result
 
 
         
