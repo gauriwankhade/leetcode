@@ -8,9 +8,8 @@ class Solution(object):
 			if openCount + closedCount >= 2 * n:
 				result.add(comb)
 				return
-			# if openCount < n:
+            
 			backtrack(0, comb + '(', openCount + 1, closedCount, n)
-			# if closedCount < n:
 			backtrack(1, comb + ')', openCount, closedCount + 1, n)	
 
 			return result		
