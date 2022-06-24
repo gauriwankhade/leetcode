@@ -3,14 +3,15 @@ class Solution(object):
 		result = set()
 
 		def backtrack(curr, comb, openCount, closedCount, n):
-			if openCount >= closedCount:
-				if openCount + closedCount >= 2 * n:
-					result.add(comb)
-					return
-				if openCount < n:
-					backtrack(0, comb + '(', openCount + 1, closedCount, n)
-				if closedCount < n:
-					backtrack(1, comb + ')', openCount, closedCount + 1, n)	
+			if openCount < closedCount:
+				return
+			if openCount + closedCount >= 2 * n:
+				result.add(comb)
+				return
+			if openCount < n:
+				backtrack(0, comb + '(', openCount + 1, closedCount, n)
+			if closedCount < n:
+				backtrack(1, comb + ')', openCount, closedCount + 1, n)	
 
 			return result		
 
