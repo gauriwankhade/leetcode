@@ -1,22 +1,19 @@
-
 class Solution(object):
+	## Approach 1 - No Recursion
 	def letterCombinations(self, digits):
-		
+		if not digits:
+			return ""
+
 		hashmap = {'2': 'abc','3': 'def','4': 'ghi','5': 'jkl','6': 'mno','7': 'pqrs','8': 'tuv','9': 'wxyz'}
-		result = []
 
-		def backtrack(curr, comb):
-			if curr >= len(digits):
-				result.append(comb)
-				return
+		lastComb = hashmap[digits[0]]
 
-			for digit in hashmap[digits[curr]]:
-				backtrack(curr + 1, comb + digit)
+		for item in digits[1: ]:
+			newComb = []
+			for digit in hashmap[item]:
+				for comb in lastComb:
+					newComb.append(comb + digit)
 
-			return result
+			lastComb = newComb
 
-		return backtrack(0, "")
-		
-
-
-
+		return lastComb
