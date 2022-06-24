@@ -1,23 +1,23 @@
 class Solution(object):
 	def generateParenthesis(self, n):
 		string = '()' * n
-		visited = defaultdict(bool)
 		result = set()
-		count = {1: '(', 0: ')'}
+		paren = ['(', ')']
+		count = {0: 0, 1: 0}
 
 		def backtrack(curr, comb):
-			if max(comb.count('('), comb.count(')')) > len(string)/2:
+			if max(count[0], count[1]) > len(string)/2:
 				return
-			if comb.count('(') >= comb.count(')'):
+			if count[0] >= count[1]:
 				if len(comb) >= len(string):
 					result.add(comb)
 					return
-
-				backtrack(curr, comb + count[curr])
-				backtrack(1 - curr, comb + count[1 - curr])
-			
-				
-						
+				count[curr] += 1
+				backtrack(curr, comb + paren[curr])
+				count[curr] -= 1
+				count[1 - curr] += 1
+				backtrack(1 - curr, comb + paren[1 - curr])		
+				count[1 - curr] -= 1				
 
 		backtrack(0, "")
 
