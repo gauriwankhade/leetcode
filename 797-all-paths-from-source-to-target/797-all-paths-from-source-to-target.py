@@ -7,8 +7,8 @@ class Solution(object):
 			if curr == len(graph) - 1:
 				result.add(tuple(path))
 				return
-			if not graph[curr]:
-				return
+			# if not graph[curr]:
+			# 	return
 
 			for neighbour in graph[curr]:
 				if not visited[neighbour]:
