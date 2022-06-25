@@ -1,11 +1,10 @@
 class Solution(object):
 	def allPathsSourceTarget(self, graph):
-		# visited = defaultdict(int)
 		result = []
 
 		def backtrack(curr, path):
 			if curr == len(graph) - 1:
-				result.append(list(path))
+				result.append(path[0: ])
 				return
 			
 			for neighbour in graph[curr]:
