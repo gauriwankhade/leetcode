@@ -10,14 +10,14 @@ class Solution(object):
 
 		count = 0
 		for node in graph.keys():
-			path = 0
 			if visited[node]:
 				continue
-			queue = [node]
-			while(queue):
-				elem = queue.pop()
+			stack = [node]
+			path = 0
+			while(stack):
+				elem = stack.pop()
 				if not visited[elem]:
-					queue = queue + graph[elem]
+					stack = stack + graph[elem]
 					visited[elem] = True
 					path += 1
 			if path > 0:
@@ -25,3 +25,4 @@ class Solution(object):
 
 		return count + n - len(visited) 
 					
+	
