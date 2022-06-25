@@ -5,11 +5,13 @@ class Solution(object):
 
 		def backtrack(curr, path):
 			if curr == len(graph) - 1:
-				result.append(path)
+				result.append(list(path))
 				return
 			
 			for neighbour in graph[curr]:
-				backtrack(neighbour, path + [neighbour])
+				path.append(neighbour)
+				backtrack(neighbour, path)
+				path.pop()
 
 			return result
 
