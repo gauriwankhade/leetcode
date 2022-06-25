@@ -4,7 +4,7 @@ class Solution(object):
 
 		def backtrack(curr, path):
 			if curr == len(graph) - 1:
-				result.append(path[0: ])
+				result.append(list(path))
 				return
 			
 			for neighbour in graph[curr]:
