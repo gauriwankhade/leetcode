@@ -5,8 +5,8 @@
 #         self.next = next
 class Solution(object):
     def swapPairs(self, head):
-        if not head:
-            return
+        if not head or not head.next:
+            return head
         curr = head
         newhead = head.next
         last = None
@@ -22,5 +22,5 @@ class Solution(object):
             last = curr
             curr = curr.next
            
-        return newhead or head
+        return newhead
             
