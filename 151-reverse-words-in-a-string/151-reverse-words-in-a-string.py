@@ -1,7 +1,6 @@
 class Solution(object):
     def reverseWords(self, s):
-        item = ""
-        result = ""
+        item = result = ""
         s = s + " "
         
         for index in range(len(s)):
