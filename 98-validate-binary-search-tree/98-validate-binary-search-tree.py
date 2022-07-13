@@ -13,22 +13,18 @@ class Solution(object):
         
         def helper(root, left, right):
             if not root:
-                return True
+                return 
                 
             helper(root.left, left, root.val)
             helper(root.right, root.val, right)
-
-            # if left:
-            #     maxLeft = max(left.val, maxLeft)
-            # if right:
-            #     minRight = min(right.val, minRight)
             
             if left >= root.val or right <= root.val:
                 self.res = False
                 
-        
-        helper(root, float('-inf'), float('inf'))
-        return self.res
+            return self.res
+
+        return helper(root, float('-inf'), float('inf'))
+       
         
         
                 
