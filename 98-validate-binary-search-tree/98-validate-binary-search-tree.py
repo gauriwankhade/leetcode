@@ -15,7 +15,7 @@ class Solution(object):
             helper(root.left, left, root.val)
             helper(root.right, root.val, right)
             
-            if left >= root.val or right <= root.val:
+            if left >= root.val or root.val >= right:
                 self.res = False
                 
             return self.res
