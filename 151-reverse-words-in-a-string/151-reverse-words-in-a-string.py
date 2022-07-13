@@ -11,4 +11,4 @@ class Solution(object):
                 result = item + " " + result
                 item = ""
 
-        return result[: len(result) - 1]
+        return result[: -1]
