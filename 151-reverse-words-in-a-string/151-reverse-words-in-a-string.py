@@ -2,6 +2,7 @@ class Solution(object):
     def reverseWords(self, s):
         item = ""
         result = ""
+        s = s + " "
         
         for index in range(len(s)):
             if s[index] != " ":
@@ -11,9 +12,4 @@ class Solution(object):
                 result = item + " " + result
                 item = ""
 
-        if item and result:     
-            return item + " " + result[:len(result) - 1]
-        if item and not result:
-            return item
-        
-        return result[:len(result) -1 ]
+        return result[: len(result) - 1]
