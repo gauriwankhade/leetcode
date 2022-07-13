@@ -1,14 +1,16 @@
-from collections import defaultdict
+
 
 class Solution(object):
-	def groupAnagrams(self, strs):
-		ans = collections.defaultdict(list)
+    def groupAnagrams(self, strs):
+        alpha = 'abcdefghijklmnopqrstuvwxyz'
+        Map = defaultdict(list)
+        for word in strs:
+            letters = [0] * 26
+            for char in word:
+                letters[alpha.find(char)] += 1
 
-		for item in strs:
-			chars = [0] * 26
-			for char in item:
-				chars[ord(char) - ord('a')] += 1
-
-			ans[tuple(chars)].append(item)
-
-		return ans.values()
+            Map[tuple(letters)].append(word)
+            
+        return Map.values()
+            
+                
