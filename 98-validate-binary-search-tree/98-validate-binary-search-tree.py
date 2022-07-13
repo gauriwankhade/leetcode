@@ -6,9 +6,6 @@
 #         self.right = right
 class Solution(object):
     def isValidBST(self, root):
-        if not root:
-            return
-        
         self.res = True
         
         def helper(root, left, right):
