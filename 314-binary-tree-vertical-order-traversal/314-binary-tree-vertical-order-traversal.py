@@ -12,6 +12,7 @@ class Solution(object):
         
         
         queue = [(root, 0)]
+        firstCol = float('inf')
         
         while(queue):
             elem = queue.pop(0)
@@ -19,8 +20,16 @@ class Solution(object):
                 Map[elem[1]].append(elem[0].val)
                 queue.append((elem[0].left, elem[1] - 1))
                 queue.append((elem[0].right, elem[1] + 1))
+                
+                firstCol = min(firstCol, elem[1])
+                
+        res = []
+       
+        while(Map[firstCol]):
+            res.append(Map[firstCol])
+            firstCol += 1
                              
-        return [Map[key] for key in sorted(Map)]
+        return res
             
             
      
