@@ -9,5 +9,5 @@ class Solution(object):
                     firstMax, secondMax = int(char), firstMax
                 elif firstMax != int(char):
                     secondMax = max(secondMax, int(char))
-        print(firstMax, secondMax)   
+        
         return secondMax if secondMax not in [float('-inf'), firstMax] else -1
