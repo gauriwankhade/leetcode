@@ -5,4 +5,7 @@ SELECT
     DISTINCT a.email AS Email
 FROM 
     Person AS a
-WHERE (select count(*) FROM Person AS p WHERE p.email = a.email) > 1;
+INNER JOIN 
+    Person AS p
+ON
+    p.email = a.email AND p.id != a.id;
