@@ -28,8 +28,7 @@ class Solution(object):
                 mid = int((left + right) / 2)
                 mergeSort(left, mid)
                 mergeSort(mid + 1, right)
-                sortedArr = merge(nums[left:mid + 1], nums[mid + 1: right + 1])
-                nums[left: right + 1] = sortedArr
+                nums[left: right + 1] = merge(nums[left:mid + 1], nums[mid + 1: right + 1])
                 
             return nums
  
