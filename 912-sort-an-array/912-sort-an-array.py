@@ -1,6 +1,5 @@
 class Solution(object):
     def sortArray(self, nums):
-        mergedArr = []
         def merge(arr1, arr2):
             first = second = 0
             currMin = None
